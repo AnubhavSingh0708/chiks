@@ -8,12 +8,16 @@
 @media (max-width: 600px) {
   
 } 
-body{text-align: center;}
+body{text-align: center;
+background-color: #efefef;
+color: #FFBC00;
+}
+
 button{
     font-size: x-large;
-    background: rgb(255,134,0);
-    background: linear-gradient(90deg, rgba(255,134,0,1) 0%, rgba(255,85,21,1) 28%, rgba(255,61,0,1) 75%);
-    padding: 20px;
+    background: #FFBC00;
+    box-shadow:0px 1px 15px #FFBC00;
+   padding: 20px;
     border-radius: 20px;
     width: 100%;
     border:0cap;
@@ -23,6 +27,7 @@ button{
     background-origin: 0px 0px;
     transition: all 0.5s;
     opacity: 1;
+    color: #fff;
 }
 button:hover{
     opacity: 0.7;
@@ -33,13 +38,13 @@ table{
 }
 td{
     width: max-content;
-    padding: 0.1vw;
+    padding: 0.3vw;
 }
 #out{
     width: 90%;
     height: 80vh;
-    background-color: #f0f0f0;
-    border: 2px solid orangered;
+    background-color: #fff;
+    border: 2px solid orange;
     margin: auto;
     border-radius: 70px;
     font-size: larger;
@@ -55,6 +60,7 @@ td{
     content: "Score:";
 }
 #vic{
+  z-index: 11;
     position: fixed;
     top: 5px;
     left: 5px;
@@ -62,6 +68,21 @@ td{
 }
 #vic::before{
     content: "Victories:";
+}
+#eve{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100vh;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  padding-top: calc(50vh - 100px);
+}
+#eve>button{
+  width: 200px;
+  margin: 10px;
+
 }
     </style>
 </head>
@@ -80,6 +101,10 @@ td{
             <td><button class="btn" onclick="run(5)">5</button></td>
         </th>
     </table>
+    <div id="eve">
+      <button onclick="document.getElementById('eve').style.display='none';odd=1;" >odd</button><br>
+      <button onclick="document.getElementById('eve').style.display='none';">even</button>
+    </div>
     <script>
 
 function setCookie(cname, cvalue) {
@@ -104,12 +129,25 @@ function getCookie(cname) {
         var score=0;
         var score2=0;
         var out=false;
+        var toss=true;
+        var odd=0;
+        var batting=true;
         if(getCookie("victories")===""){
             setCookie("victories",0);
         }else{
   document.getElementById("vic").innerHTML=getCookie("victories");}
 
        function run(a){
+        if (toss){
+          rand=Math.ceil(Math.random()*5);
+            if ((a+rand)%2==odd){
+           alert("you won batting");
+            }else {alert("you will ball");
+            
+            batting=false;}
+            toss=false;
+        }
+        else{
         if (!out){
       rand=Math.ceil(Math.random()*5);
       document.getElementById("out").innerHTML=rand;
@@ -127,11 +165,11 @@ function getCookie(cname) {
         rand=Math.ceil(Math.random()*5);
         document.getElementById("out").innerHTML=rand;
         if (a==rand){
-if(score>score2){
+if(score>score2 || (score<score2 && !batting)){
 alert("you win");
 setCookie("victories",parseInt(getCookie("victories"))+1);
 }
-else if(score<score2){
+else if(score<score2 || (score>score2 && !batting)){
 alert("you lost")
 }
 else{
@@ -146,10 +184,15 @@ location.reload();
       console.log(rand);
       
       document.getElementById("score").innerHTML=score2;
-      }
+      }}
         }
 
+function odd(){
 
+}
+function even(){
+  document.getElementById("eve").style.display="none";
+}
     </script>
 </body>
 </html>
