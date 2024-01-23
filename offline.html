@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicks with computer</title>
+    <style>
+@media (max-width: 600px) {
+  
+} 
+body{text-align: center;}
+button{
+    font-size: x-large;
+    background: rgb(255,134,0);
+    background: linear-gradient(90deg, rgba(255,134,0,1) 0%, rgba(255,85,21,1) 28%, rgba(255,61,0,1) 75%);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    border:0cap;
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-origin: 0px 0px;
+    transition: all 0.5s;
+    opacity: 1;
+}
+button:hover{
+    opacity: 0.7;
+    padding: 25px;
+}
+table{
+    width: 100%;
+}
+td{
+    width: max-content;
+    padding: 0.1vw;
+}
+#out{
+    width: 90%;
+    height: 80vh;
+    background-color: #f0f0f0;
+    border: 2px solid orangered;
+    margin: auto;
+    border-radius: 70px;
+    font-size: larger;
+    font-size: 70vh;
+}
+#score{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    font-size: large;
+}
+#score::before{
+    content: "Score:";
+}
+#vic{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    font-size: large;
+}
+#vic::before{
+    content: "Victories:";
+}
+    </style>
+</head>
+<body>
+    <h1 class="title">Chicks game</h1>
+    <div id="score"></div>
+    <div id="vic"></div>
+    <div id="out"></div>
+    <table>
+        <th>
+            <td><button class="btn" onclick="run(1)">1</button></td>
+            <td><button class="btn" onclick="run(2)">2</button></td>
+            <td><button class="btn" onclick="run(3)">3</button></td>
+            <td><button class="btn" onclick="run(4)">4</button></td>
+            <td><button class="btn" onclick="run(5)">5</button></td>
+        </th>
+    </table>
+    <script>
+
+function setCookie(cname, cvalue) {
+  document.cookie = cname + "=" + cvalue + ";" + ";path=/";
+}
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+        var rand=0;
+        var score=0;
+        var score2=0;
+        var out=false;
+        if(getCookie("victories")===""){
+            setCookie("victories",0);
+        }else{
+  document.getElementById("vic").innerHTML=getCookie("victories");}
+
+       function run(a){
+        if (!out){
+      rand=Math.ceil(Math.random()*5);
+      document.getElementById("out").innerHTML=rand;
+      if (a==rand){
+        out=true;
+        alert("out");
+      }else{
+        score+=a;
+        score+=rand;
+      }
+      console.log(rand);
+      
+      document.getElementById("score").innerHTML=score;}
+      else{
+        rand=Math.ceil(Math.random()*5);
+        document.getElementById("out").innerHTML=rand;
+        if (a==rand){
+if(score>score2){
+alert("you win");
+setCookie("victories",parseInt(getCookie("victories"))+1);
+}
+else if(score<score2){
+alert("you lost")
+}
+else{
+alert("match draw");
+}
+location.reload();
+       
+      }else{
+        score2+=a;
+        score2+=rand;
+      }
+      console.log(rand);
+      
+      document.getElementById("score").innerHTML=score2;
+      }
+        }
+
+
+    </script>
+</body>
+</html>
