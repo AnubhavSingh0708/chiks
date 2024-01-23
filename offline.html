@@ -57,7 +57,16 @@ td{
     font-size: large;
 }
 #score::before{
-    content: "Score:";
+    content: "batting first";
+}
+#score2{
+    position: fixed;
+    top: 18px;
+    right: 5px;
+    font-size: large;
+}
+#score2::before{
+    content: "balling first:";
 }
 #vic{
   z-index: 11;
@@ -90,6 +99,7 @@ td{
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <h1 class="title">Chicks game</h1>
     <div id="score"></div>
+    <div id="score2"></div>
     <div id="vic"></div>
     <div id="out"></div>
     <table>
@@ -183,7 +193,7 @@ location.reload();
       }
       console.log(rand);
       
-      document.getElementById("score").innerHTML=score2;
+      document.getElementById("score2").innerHTML=score2;
       }}
         }
 
