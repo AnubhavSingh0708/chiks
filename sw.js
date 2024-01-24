@@ -1,12 +1,12 @@
 self.addEventListener('install', (e) => {
     e.waitUntil(
       caches.open('chicks-store').then((cache) => cache.addAll([
-        '/chiks/',
-        '/chiks/offline.html',
-        '/chiks/favicon.ico',
-        '/chiks/favicon.png',
-        '/chiks/favicon1.png',
-        '/chiks/favicon.svg',
+        './chiks/',
+        './chiks/offline.html',
+        './chiks/favicon.ico',
+        './chiks/favicon.png',
+        './chiks/favicon1.png',
+        './chiks/favicon.svg',
       ])),
     );
   });
@@ -42,7 +42,7 @@ self.addEventListener('install', (e) => {
             console.log("Fetch failed; returning offline page instead.", error);
   
             const cache = await caches.open("chicks-store");
-            const cachedResponse = await cache.match("/chiks/offline.html");
+            const cachedResponse = await cache.match("./chiks/offline.html");
             return cachedResponse;
           }
         })()
