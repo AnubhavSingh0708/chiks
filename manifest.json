@@ -1,0 +1,123 @@
+{
+    "short_name": "Chicks",
+    "name": "Chicks",
+    "icons": [
+      {
+        "src": "favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512"
+      },
+      {
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "favicon1.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "favicon.ico",
+        "type": "image/x-icon",
+        "sizes": "100x100"
+      }
+    ],
+    "id": "/home.html",
+    "start_url": "/home.html",
+    "background_color": "#efefef",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#ffbc00",
+    "shortcuts": [
+      {
+        "name": "offline",
+        "short_name": "offline",
+        "description": "play with computer",
+        "url": "/offline.html",
+        "icons":[
+          {
+            "src": "favicon1.png",
+            "type": "image/png",
+            "sizes": "96x96"
+          }
+        ]
+        },
+      {
+        "name": "pizzjoe",
+        "short_name": "pizzjoe",
+        "description": "get wrekt",
+        "url": "https://wintrymichi.ch/",
+        "icons":[
+          {
+            "src": "favicon1.png",
+            "type": "image/png",
+            "sizes": "96x96"
+          }
+        ]
+       },
+      {
+        "name": "online",
+        "short_name": "Online",
+        "description": "play with opponent",
+        "url": "/home.html",
+        "icons":[
+          {
+            "src": "favicon1.png",
+            "type": "image/png",
+            "sizes": "96x96"
+          }
+        ]
+       }
+    ],
+    "description": "play chiks",
+    "screenshots": [
+      {
+        "src": "screen.png",
+        "type": "image/png",
+        "sizes": "1920x964"
+      }
+    ],
+    "widgets": [
+      {
+        "name": "Play now",
+        "description": "play chicks",
+        "tag": "chils",
+        "template": "pwamp-template",
+        "ms_ac_template": "widgets/mini-player-template.json",
+        "data": "home.html",
+        "type": "application/json",
+        "screenshots": [
+          {
+            "src": "screen.png",
+            "type": "image/png",
+            "sizes": "1920x946"
+          }
+        ],
+        "icons": [
+          {
+            "src": "favicon.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+          },
+          {
+            "src": "favicon.png",
+            "type": "image/png",
+            "sizes": "512x512"
+          },
+          {
+            "src": "favicon1.png",
+            "type": "image/png",
+            "sizes": "96x96"
+          },
+          {
+            "src": "favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "100x100"
+          }
+        ],
+        "auth": false,
+        "update": 86400
+      }
+    ]
+  }
