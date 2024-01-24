@@ -23,8 +23,8 @@
         "sizes": "100x100"
       }
     ],
-    "id": "/home.html",
-    "start_url": "/home.html",
+    "id": "/chiks/home.html",
+    "start_url": "/chiks/home.html",
     "background_color": "#efefef",
     "display": "standalone",
     "scope": "/",
@@ -34,7 +34,7 @@
         "name": "offline",
         "short_name": "offline",
         "description": "play with computer",
-        "url": "/offline.html",
+        "url": "/chiks/offline.html",
         "icons":[
           {
             "src": "favicon1.png",
@@ -60,7 +60,7 @@
         "name": "online",
         "short_name": "Online",
         "description": "play with opponent",
-        "url": "/home.html",
+        "url": "/chiks/home.html",
         "icons":[
           {
             "src": "favicon1.png",
@@ -85,7 +85,7 @@
         "tag": "chils",
         "template": "pwamp-template",
         "ms_ac_template": "widgets/mini-player-template.json",
-        "data": "home.html",
+        "data": "chiks/home.html",
         "type": "application/json",
         "screenshots": [
           {
