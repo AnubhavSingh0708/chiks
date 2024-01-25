@@ -7,6 +7,8 @@ self.addEventListener('install', (e) => {
         '/chiks/favicon.png',
         '/chiks/favicon1.png',
         '/chiks/favicon.svg',
+        '/chiks/manifest.json',
+        '/chiks/sw.js',
       ])),
     );
   });
